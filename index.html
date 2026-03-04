@@ -2,83 +2,115 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>For My Love ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Only For You 💖</title>
+
 <style>
 body{
   margin:0;
-  padding:0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg,#ff758c,#ff7eb3);
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
   display:flex;
   justify-content:center;
   align-items:center;
   height:100vh;
   text-align:center;
-  color:white;
+  overflow:hidden;
 }
 
-.box{
-  background: rgba(0,0,0,0.5);
-  padding:40px;
-  border-radius:20px;
+.card{
+  background:white;
   width:90%;
-  max-width:400px;
+  max-width:350px;
+  padding:30px 20px;
+  border-radius:25px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  position:relative;
+}
+
+h1{
+  font-size:22px;
+  color:#ff4d6d;
+}
+
+p{
+  font-size:15px;
+  color:#333;
+  min-height:60px;
 }
 
 button{
-  padding:12px 20px;
+  padding:10px 18px;
   border:none;
-  border-radius:25px;
-  margin:10px;
-  font-size:16px;
+  border-radius:20px;
+  margin:8px;
+  font-size:14px;
   cursor:pointer;
 }
 
 #yes{
-  background:#00ff99;
+  background:#ff4d6d;
+  color:white;
 }
 
 #no{
-  background:#ff4d4d;
-  position:relative;
+  background:#ddd;
+}
+
+.heart{
+  position:absolute;
+  color:#ff4d6d;
+  animation: float 4s linear infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(100vh);}
+  100%{transform:translateY(-10vh);}
 }
 </style>
 </head>
 
 <body>
 
-<div class="box">
-  <h1>I'm Sorry 🥺</h1>
-  <p id="msg"></p>
-  <button id="yes" onclick="love()">Okay ❤️</button>
-  <button id="no">No 😒</button>
+<div class="card">
+  <h1>Wait… Don’t Be Angry 🥺</h1>
+  <p id="text"></p>
+  <button id="yes" onclick="forgive()">Okay Fine ❤️</button>
+  <button id="no" onclick="mood()">Still Angry 😒</button>
 </div>
 
 <script>
 
-let text = "Tui amar shobcheye important manus. Vul hoye gese, kintu amar bhalobasha real. Rag koris na please ❤️";
+let message = "Tui rag korle amar pura duniya ta silent hoye jai. Amar mood, amar hasi, amar shob kichu tor sathe connected 💗 Ami jani ami vul korsilam… but amar love ta real.";
 let i=0;
 
-function typing(){
-  if(i < text.length){
-    document.getElementById("msg").innerHTML += text.charAt(i);
+function type(){
+  if(i < message.length){
+    document.getElementById("text").innerHTML += message.charAt(i);
     i++;
-    setTimeout(typing,40);
+    setTimeout(type,35);
   }
 }
-typing();
+type();
 
-function love(){
-  document.querySelector(".box").innerHTML =
-  "<h1>Yaaay 😍</h1><p>Thank you for forgiving me ❤️</p>";
+function forgive(){
+  document.querySelector(".card").innerHTML =
+  "<h1>You Smiled 😍</h1><p>Ei hasi ta amar favorite. Promise, aar kokhono emon hobe na 💞</p>";
 }
 
-let noBtn=document.getElementById("no");
-noBtn.addEventListener("mouseover",function(){
-  noBtn.style.position="absolute";
-  noBtn.style.left=Math.random()*70+"%";
-  noBtn.style.top=Math.random()*70+"%";
-});
+function mood(){
+  document.getElementById("text").innerHTML =
+  "Achha thik ase… Rag thakle thak. Kintu ami tor jonno ekta chocolate + ekta hug reserve kore rakhlam 🍫🤗";
+}
+
+for(let i=0;i<20;i++){
+  let heart=document.createElement("div");
+  heart.innerHTML="💖";
+  heart.className="heart";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(Math.random()*2+3)+"s";
+  document.body.appendChild(heart);
+}
 
 </script>
 
