@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Only For You ❤️</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ff758c,#ff7eb3);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    text-align:center;
+    overflow:hidden;
+    color:white;
+}
+
+.box{
+    background: rgba(0,0,0,0.4);
+    padding:40px;
+    border-radius:20px;
+    width:90%;
+    max-width:400px;
+}
+
+h1{
+    font-size:28px;
+}
+
+p{
+    font-size:18px;
+    min-height:60px;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    margin:10px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+#yes{
+    background:#00ff88;
+}
+
+#no{
+    background:#ff4d4d;
+    position:relative;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1 id="title">Hey Beautiful 🥺</h1>
+    <p id="message"></p>
+
+    <button id="yes" onclick="forgive()">Okay, I Forgive You ❤️</button>
+    <button id="no">No 😒</button>
+</div>
+
+<script>
+
+let text = "Tui amar shobcheye special manus... Amar din, amar mood, amar shob kichu tor upor depend kore. Rag koris na please 🥺 Ami chara tui parbi, kintu ami tor chara parbo na ❤️";
+let i=0;
+
+function typeEffect(){
+    if(i < text.length){
+        document.getElementById("message").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeEffect,40);
+    }
+}
+typeEffect();
+
+function forgive(){
+    document.querySelector(".box").innerHTML =
+    "<h1>Yaaay 😍</h1><p>Ami jantam amar baby amake bhalobashe ❤️</p>";
+}
+
+let noBtn = document.getElementById("no");
+noBtn.addEventListener("mouseover", function(){
+    noBtn.style.position="absolute";
+    noBtn.style.left=Math.random()*80+"%";
+    noBtn.style.top=Math.random()*80+"%";
+});
+
+</script>
+
+</body>
+      </html>
